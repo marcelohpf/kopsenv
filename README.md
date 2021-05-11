@@ -1,5 +1,7 @@
 # kopsenv
 
+**This is currently a modified version of kopsenv to support using either the vanilla or spotinst kops versions
+
 [Kops](https://github.com/kubernetes/kops) version manager inspired by [tfenv](https://github.com/Zordrak/tfenv).
 
 ## Support
@@ -17,7 +19,7 @@ Currently kopsenv supports the following OSes, on x86-64 bit archtecture only:
 1. Check out kopsenv into any path (here is `${HOME}/.kopsenv`)
 
   ```sh
-  $ git clone https://github.com/kilna/kopsenv.git ~/.kopsenv
+  $ git clone https://github.com/topfreegames/kopsenv.git ~/.kopsenv
   ```
 
 2. Add `~/.kopsenv/bin` to your `$PATH` any way you like
@@ -54,6 +56,7 @@ Install a specific version of Kops. Available options for version:
 
 ```sh
 $ kopsenv install 1.10.0
+$ kopsenv install v1.18.2-f37e7a33d0-spotinst
 $ kopsenv install latest
 $ kopsenv install latest:^1.9
 $ kopsenv install
@@ -74,6 +77,7 @@ Switch a version to use
 
 ```sh
 $ kopsenv use 1.10.0
+$ kopsenv use v1.18.2-f37e7a33d0-spotinst
 $ kopsenv use latest
 $ kopsenv use latest:^1.9
 ```
@@ -87,6 +91,7 @@ Uninstall a specific version of Kops
 
 ```sh
 $ kopsenv uninstall 1.10.0
+$ kopsenv uninstall v1.18.2-f37e7a33d0-spotinst
 $ kopsenv uninstall latest
 $ kopsenv uninstall latest:^1.9
 ```
@@ -119,6 +124,15 @@ $ kopsenv list-remote
 1.7.1
 1.7.0
 ...
+```
+
+## Configuration directory
+
+If you would like to configure a different directory than the `KOPSENV_ROOT` to install and manager your Kops versions,
+you can specify a `KOPSENV_CONF_DIR` environment variable.
+
+```sh
+export KOPSENV_CONF_DIR="$HOME/.kopsversions/
 ```
 
 ## .kops-version
